@@ -1,0 +1,15 @@
+name: On Delete Sample Workflow
+on: delete
+jobs:
+  delete:
+    if: github.ref_type == 'branch'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Check it out!
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
