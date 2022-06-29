@@ -13,7 +13,9 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          ref: ${{ github.event.ref }}
-      - name: Clean up
+      - name: Add TARGET_BRANCH to environment variables
         run: |
-          echo "Clean up for branch ${{ github.event.ref }}"
+          echo "TARGET_BRANCH=${{ github.event.ref }}" >> $GITHUB_ENV
+      - name: Echo environment variables
+        run: |
+          echo $TARGET_BRANCH
